@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Route } from "react-router-dom";
+
+import Form  from './Form/Form';
 import SavedList from "./Movies/SavedList";
 import MovieList from "./Movies/MovieList";
 import Movie from "./Movies/Movie";
@@ -27,7 +29,7 @@ const App = () => {
   return (
     <>
       <SavedList list={savedList} />
-
+      <Form />
       <Route exact path="/">
         <MovieList movies={movieList} />
       </Route>
