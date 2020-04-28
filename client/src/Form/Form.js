@@ -12,9 +12,27 @@ const Form = () => {
     const [film, setFilm] = useState(initialForm);
 
 
+
+const handleSubmit = event => {
+    event.preventDefault();
+}
+
     return(
         <div>
-            Ello Poppet
+            <h2>The form</h2>
+            <form onSubmit={handleSubmit}>
+                
+                <input type='number'/>
+                <div />
+                <input type='text'/>
+                <div />
+                <input type='string'/>
+                <div />
+                <input type='number'/>
+                <div />
+                <input type='string'/>
+                <button>Add Film</button>
+            </form>
         </div>
     )
 }
