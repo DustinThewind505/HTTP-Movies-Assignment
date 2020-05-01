@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useRouteMatch } from 'react-router-dom';
 import MovieCard from './MovieCard';
 
-function Movie(props,{ addToSavedList }) {
+function Movie(props) {
   const [movie, setMovie] = useState(null);
   const match = useRouteMatch();
 
@@ -14,11 +14,6 @@ function Movie(props,{ addToSavedList }) {
       .catch(err => console.log(err.response));
   };
 
-  const saveMovie = () => {
-    addToSavedList(movie);
-  };
-
-  console.log(movie);
 
   useEffect(() => {
     fetchMovie(match.params.id);
@@ -48,7 +43,7 @@ function Movie(props,{ addToSavedList }) {
     <div className='save-wrapper'>
       <MovieCard movie={movie} />
 
-      <div className='save-button' onClick={saveMovie}>
+      <div className='save-button' onClick={() => props.addToSavedList(movie)}>
         Save
       </div>
       <button className='edit-button' onClick={handleUpdate}>
