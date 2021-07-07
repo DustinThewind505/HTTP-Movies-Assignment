@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Route } from "react-router-dom";
 import SavedList from "./Movies/SavedList";
 import MovieList from "./Movies/MovieList";
+import MovieForm from './components/MovieForm';
 import Movie from "./Movies/Movie";
 import axios from 'axios';
 
@@ -33,8 +34,12 @@ const App = () => {
       </Route>
 
       <Route path="/movies/:id">
-        <Movie addToSavedList={addToSavedList} />
+      <Movie addToSavedList={addToSavedList}/>
+       
       </Route>
+      <Route exact path="/update-movie/:id" 
+      render={props => (<MovieForm {...props} addToSavedList={addToSavedList} getMovieList={getMovieList} movies={movieList}/>
+      )} />
     </>
   );
 };
